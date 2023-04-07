@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQ01</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btn5">ajoute text div2</button>
+    <button id="btn4">display/hide</button>
+    <button id="btn3">display div</button>
+    <button id="btn2">hide div</button>
+    <button id="btn1">change css</button>
+    
+    <br><br>
+    <div id="test">horizon verticale</div>
+    <div id="test2"></div>
+    
+    <script>
+    $(document).ready(function() {                      //quand html est chargé
+        $("#btn1").click(function() {                 //écoute l'event click sur btn1
+            $("#test, #test2").css("color", "red");     //change le css color du div #test
+        });
+        $("#btn2").click(function() {                   //écoute l'event click sur btn2
+            $("#test").hide("fast");                    //cache la div
+        });
+        $("#btn3").click(function() {                   //écoute l'event click sur btn3
+            $("#test").show("fast");                    //affiche la div
+        });
+        $("#btn4").click(function() {                   //écoute l'event click sur btn4
+            $("#test").toggle("fast");                  //affiche et cache la div
+        });
+        $("#btn5").click(function() {                       //écoute l'event click sur btn5
+            $("#test2").text("heuss l'enforé ft. vald");   //ajoute du texte dans la div2
+        });
+        $("#inp1").keyup(function() {                                   //à chaque touche relachée
+            let valeur = $("#inp1").val()                               //je recupère la saisie dans input
+            $("#test, #test2").html("<strong>"+valeur+"</strong>")      //je met à jour le contenu de #test2 en html
+        })
+    });
+    </script>
+</body>
+</html>
